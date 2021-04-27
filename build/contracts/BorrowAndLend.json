@@ -1,0 +1,2484 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "AggregatorAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "asset",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "interestRateMode",
+          "type": "uint256"
+        }
+      ],
+      "name": "borrow",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getLatestPrice",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "18": "contracts/BorrowAndLend.sol",
+    "8": "/Users/patrick/.brownie/packages/smartcontractkit/chainlink-brownie-contracts@1.0.2/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/BorrowAndLend.sol",
+    "exportedSymbols": {
+      "BorrowAndLend": [
+        201
+      ]
+    },
+    "id": 202,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 153,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:18"
+      },
+      {
+        "absolutePath": "/Users/patrick/.brownie/packages/smartcontractkit/chainlink-brownie-contracts@1.0.2/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
+        "file": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
+        "id": 154,
+        "nodeType": "ImportDirective",
+        "scope": 202,
+        "sourceUnit": 1280,
+        "src": "58:76:18",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 201,
+        "linearizedBaseContracts": [
+          201
+        ],
+        "name": "BorrowAndLend",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 156,
+            "mutability": "mutable",
+            "name": "priceFeed",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 201,
+            "src": "166:40:18",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_AggregatorV3Interface_$1279",
+              "typeString": "contract AggregatorV3Interface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 155,
+              "name": "AggregatorV3Interface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1279,
+              "src": "166:21:18",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AggregatorV3Interface_$1279",
+                "typeString": "contract AggregatorV3Interface"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 167,
+              "nodeType": "Block",
+              "src": "388:69:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 165,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 161,
+                      "name": "priceFeed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 156,
+                      "src": "398:9:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1279",
+                        "typeString": "contract AggregatorV3Interface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 163,
+                          "name": "AggregatorAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 158,
+                          "src": "432:17:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 162,
+                        "name": "AggregatorV3Interface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1279,
+                        "src": "410:21:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$1279_$",
+                          "typeString": "type(contract AggregatorV3Interface)"
+                        }
+                      },
+                      "id": 164,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "410:40:18",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1279",
+                        "typeString": "contract AggregatorV3Interface"
+                      }
+                    },
+                    "src": "398:52:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$1279",
+                      "typeString": "contract AggregatorV3Interface"
+                    }
+                  },
+                  "id": 166,
+                  "nodeType": "ExpressionStatement",
+                  "src": "398:52:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 168,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 159,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 158,
+                  "mutability": "mutable",
+                  "name": "AggregatorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 168,
+                  "src": "354:25:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "354:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "353:27:18"
+            },
+            "returnParameters": {
+              "id": 160,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "388:0:18"
+            },
+            "scope": 201,
+            "src": "342:115:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 177,
+              "nodeType": "Block",
+              "src": "543:8:18",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "c1bce0b7",
+            "id": 178,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "borrow",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 170,
+                  "mutability": "mutable",
+                  "name": "asset",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 178,
+                  "src": "479:13:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 169,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "479:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 172,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 178,
+                  "src": "494:14:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 171,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "494:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 174,
+                  "mutability": "mutable",
+                  "name": "interestRateMode",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 178,
+                  "src": "510:24:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 173,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "510:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "478:57:18"
+            },
+            "returnParameters": {
+              "id": 176,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "543:0:18"
+            },
+            "scope": 201,
+            "src": "463:88:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 199,
+              "nodeType": "Block",
+              "src": "609:223:18",
+              "statements": [
+                {
+                  "assignments": [
+                    184,
+                    186,
+                    188,
+                    190,
+                    192
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 184,
+                      "mutability": "mutable",
+                      "name": "roundID",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 199,
+                      "src": "633:14:18",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint80",
+                        "typeString": "uint80"
+                      },
+                      "typeName": {
+                        "id": 183,
+                        "name": "uint80",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "633:6:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint80",
+                          "typeString": "uint80"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 186,
+                      "mutability": "mutable",
+                      "name": "price",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 199,
+                      "src": "662:9:18",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_int256",
+                        "typeString": "int256"
+                      },
+                      "typeName": {
+                        "id": 185,
+                        "name": "int",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "662:3:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_int256",
+                          "typeString": "int256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 188,
+                      "mutability": "mutable",
+                      "name": "startedAt",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 199,
+                      "src": "685:14:18",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 187,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "685:4:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 190,
+                      "mutability": "mutable",
+                      "name": "timeStamp",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 199,
+                      "src": "713:14:18",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 189,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "713:4:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 192,
+                      "mutability": "mutable",
+                      "name": "answeredInRound",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 199,
+                      "src": "741:22:18",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint80",
+                        "typeString": "uint80"
+                      },
+                      "typeName": {
+                        "id": 191,
+                        "name": "uint80",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "741:6:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint80",
+                          "typeString": "uint80"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 196,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 193,
+                        "name": "priceFeed",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 156,
+                        "src": "776:9:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_AggregatorV3Interface_$1279",
+                          "typeString": "contract AggregatorV3Interface"
+                        }
+                      },
+                      "id": 194,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "latestRoundData",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1278,
+                      "src": "776:25:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
+                        "typeString": "function () view external returns (uint80,int256,uint256,uint256,uint80)"
+                      }
+                    },
+                    "id": 195,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "776:27:18",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
+                      "typeString": "tuple(uint80,int256,uint256,uint256,uint80)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "619:184:18"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 197,
+                    "name": "price",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 186,
+                    "src": "820:5:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "functionReturnParameters": 182,
+                  "id": 198,
+                  "nodeType": "Return",
+                  "src": "813:12:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "8e15f473",
+            "id": 200,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLatestPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 179,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "580:2:18"
+            },
+            "returnParameters": {
+              "id": 182,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 181,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 200,
+                  "src": "604:3:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 180,
+                    "name": "int",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "604:3:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "603:5:18"
+            },
+            "scope": 201,
+            "src": "557:275:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 202,
+        "src": "136:698:18"
+      }
+    ],
+    "src": "33:802:18"
+  },
+  "bytecode": "608060405234801561001057600080fd5b506040516101b73803806101b78339818101604052602081101561003357600080fd5b5051600080546001600160a01b039092166001600160a01b0319909216919091179055610152806100656000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80638e15f4731461003b578063c1bce0b714610055575b600080fd5b610043610089565b60408051918252519081900360200190f35b6100876004803603606081101561006b57600080fd5b506001600160a01b038135169060208101359060400135610117565b005b60008060008060008060008054906101000a90046001600160a01b03166001600160a01b031663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b1580156100de57600080fd5b505afa1580156100f2573d6000803e3d6000fd5b505050506040513d60a081101561010857600080fd5b50602001519550505050505090565b50505056fea264697066735822122069e6e7e16570669e37a7994c88d609bc8546548497886af7cbac09e76690ed6764736f6c634300060c0033",
+  "bytecodeSha1": "8d06227af641e430d550163e6e140b97dae15e67",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.6.12+commit.27d51765"
+  },
+  "contractName": "BorrowAndLend",
+  "coverageMap": {
+    "branches": {
+      "18": {},
+      "8": {}
+    },
+    "statements": {
+      "18": {},
+      "8": {}
+    }
+  },
+  "dependencies": [
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/AggregatorV3Interface"
+  ],
+  "deployedBytecode": "608060405234801561001057600080fd5b50600436106100365760003560e01c80638e15f4731461003b578063c1bce0b714610055575b600080fd5b610043610089565b60408051918252519081900360200190f35b6100876004803603606081101561006b57600080fd5b506001600160a01b038135169060208101359060400135610117565b005b60008060008060008060008054906101000a90046001600160a01b03166001600160a01b031663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b1580156100de57600080fd5b505afa1580156100f2573d6000803e3d6000fd5b505050506040513d60a081101561010857600080fd5b50602001519550505050505090565b50505056fea264697066735822122069e6e7e16570669e37a7994c88d609bc8546548497886af7cbac09e76690ed6764736f6c634300060c0033",
+  "deployedSourceMap": "136:698:18:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;557:275;;;:::i;:::-;;;;;;;;;;;;;;;;463:88;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;463:88:18;;;;;;;;;;;;;:::i;:::-;;557:275;604:3;633:14;662:9;685:14;713;741:22;776:9;;;;;;;;-1:-1:-1;;;;;776:9:18;-1:-1:-1;;;;;776:25:18;;:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;776:27:18;;;;-1:-1:-1;;;;;;557:275:18;:::o;463:88::-;;;;:::o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    136,
+    834
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x36 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x8E15F473 EQ PUSH2 0x3B JUMPI DUP1 PUSH4 0xC1BCE0B7 EQ PUSH2 0x55 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x43 PUSH2 0x89 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH2 0x87 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x60 DUP2 LT ISZERO PUSH2 0x6B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 CALLDATALOAD AND SWAP1 PUSH1 0x20 DUP2 ADD CALLDATALOAD SWAP1 PUSH1 0x40 ADD CALLDATALOAD PUSH2 0x117 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH4 0xFEAF968C PUSH1 0x40 MLOAD DUP2 PUSH4 0xFFFFFFFF AND PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH1 0xA0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0xDE JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS STATICCALL ISZERO DUP1 ISZERO PUSH2 0xF2 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0xA0 DUP2 LT ISZERO PUSH2 0x108 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x20 ADD MLOAD SWAP6 POP POP POP POP POP POP SWAP1 JUMP JUMPDEST POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH10 0xE6E7E16570669E37A799 0x4C DUP9 0xD6 MULMOD 0xBC DUP6 CHAINID SLOAD DUP5 SWAP8 DUP9 PUSH11 0xF7CBAC09E76690ED676473 PUSH16 0x6C634300060C00330000000000000000 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "MSTORE",
+      "path": "18"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "CALLVALUE",
+      "path": "18"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x10"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "14": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "REVERT",
+      "path": "18"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "CALLDATASIZE",
+      "path": "18"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "LT",
+      "path": "18"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x36"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "CALLDATALOAD",
+      "path": "18"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "SHR",
+      "path": "18"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH4",
+      "path": "18",
+      "value": "0x8E15F473"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "EQ",
+      "path": "18"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x3B"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH4",
+      "path": "18",
+      "value": "0xC1BCE0B7"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "EQ",
+      "path": "18"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x55"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "57": {
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "58": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        136,
+        834
+      ],
+      "op": "REVERT",
+      "path": "18"
+    },
+    "59": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "60": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x43"
+    },
+    "63": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x89"
+    },
+    "66": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "jump": "i",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "JUMP",
+      "path": "18"
+    },
+    "67": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "68": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x40"
+    },
+    "70": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "71": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "MLOAD",
+      "path": "18"
+    },
+    "72": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "SWAP2",
+      "path": "18"
+    },
+    "73": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "DUP3",
+      "path": "18"
+    },
+    "74": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "MSTORE",
+      "path": "18"
+    },
+    "75": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "MLOAD",
+      "path": "18"
+    },
+    "76": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "77": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "78": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "79": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "SUB",
+      "path": "18"
+    },
+    "80": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x20"
+    },
+    "82": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "ADD",
+      "path": "18"
+    },
+    "83": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "84": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "RETURN",
+      "path": "18"
+    },
+    "85": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "86": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x87"
+    },
+    "89": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x4"
+    },
+    "91": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "92": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "CALLDATASIZE",
+      "path": "18"
+    },
+    "93": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "SUB",
+      "path": "18"
+    },
+    "94": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x60"
+    },
+    "96": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "97": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "LT",
+      "path": "18"
+    },
+    "98": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "99": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x6B"
+    },
+    "102": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "103": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "105": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "106": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "REVERT",
+      "path": "18"
+    },
+    "107": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "108": {
+      "op": "POP"
+    },
+    "109": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "111": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "113": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "115": {
+      "op": "SHL"
+    },
+    "116": {
+      "op": "SUB"
+    },
+    "117": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "118": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "CALLDATALOAD",
+      "path": "18"
+    },
+    "119": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "AND",
+      "path": "18"
+    },
+    "120": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "121": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x20"
+    },
+    "123": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "124": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "ADD",
+      "path": "18"
+    },
+    "125": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "CALLDATALOAD",
+      "path": "18"
+    },
+    "126": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "127": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x40"
+    },
+    "129": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "ADD",
+      "path": "18"
+    },
+    "130": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "CALLDATALOAD",
+      "path": "18"
+    },
+    "131": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x117"
+    },
+    "134": {
+      "fn": "BorrowAndLend.borrow",
+      "jump": "i",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMP",
+      "path": "18"
+    },
+    "135": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "136": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "STOP",
+      "path": "18"
+    },
+    "137": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "138": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        604,
+        607
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "140": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        633,
+        647
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "141": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        662,
+        671
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "143": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        685,
+        699
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "144": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        713,
+        727
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "146": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        741,
+        763
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "147": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "149": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "150": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "SLOAD",
+      "path": "18"
+    },
+    "151": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "152": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x100"
+    },
+    "155": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "EXP",
+      "path": "18"
+    },
+    "156": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "157": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "DIV",
+      "path": "18"
+    },
+    "158": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "160": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "162": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "164": {
+      "op": "SHL"
+    },
+    "165": {
+      "op": "SUB"
+    },
+    "166": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        785
+      ],
+      "op": "AND",
+      "path": "18"
+    },
+    "167": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "169": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "171": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "173": {
+      "op": "SHL"
+    },
+    "174": {
+      "op": "SUB"
+    },
+    "175": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        801
+      ],
+      "op": "AND",
+      "path": "18"
+    },
+    "176": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        801
+      ],
+      "op": "PUSH4",
+      "path": "18",
+      "value": "0xFEAF968C"
+    },
+    "181": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x40"
+    },
+    "183": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "MLOAD",
+      "path": "18"
+    },
+    "184": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "185": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH4",
+      "path": "18",
+      "value": "0xFFFFFFFF"
+    },
+    "190": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "AND",
+      "path": "18"
+    },
+    "191": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0xE0"
+    },
+    "193": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "SHL",
+      "path": "18"
+    },
+    "194": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "195": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "MSTORE",
+      "path": "18"
+    },
+    "196": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x4"
+    },
+    "198": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ADD",
+      "path": "18"
+    },
+    "199": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0xA0"
+    },
+    "201": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x40"
+    },
+    "203": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "MLOAD",
+      "path": "18"
+    },
+    "204": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "205": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP4",
+      "path": "18"
+    },
+    "206": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "SUB",
+      "path": "18"
+    },
+    "207": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "208": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP7",
+      "path": "18"
+    },
+    "209": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "210": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "EXTCODESIZE",
+      "path": "18"
+    },
+    "211": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "212": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "213": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "214": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0xDE"
+    },
+    "217": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "218": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "220": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "221": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "REVERT",
+      "path": "18"
+    },
+    "222": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "223": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "224": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "GAS",
+      "path": "18"
+    },
+    "225": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "STATICCALL",
+      "path": "18"
+    },
+    "226": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "227": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "228": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "229": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0xF2"
+    },
+    "232": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "233": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "18"
+    },
+    "234": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "236": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "237": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "18"
+    },
+    "238": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "18"
+    },
+    "239": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "241": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "REVERT",
+      "path": "18"
+    },
+    "242": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "243": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "244": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "245": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "246": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "247": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x40"
+    },
+    "249": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "MLOAD",
+      "path": "18"
+    },
+    "250": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "18"
+    },
+    "251": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0xA0"
+    },
+    "253": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP2",
+      "path": "18"
+    },
+    "254": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "LT",
+      "path": "18"
+    },
+    "255": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ISZERO",
+      "path": "18"
+    },
+    "256": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH2",
+      "path": "18",
+      "value": "0x108"
+    },
+    "259": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "JUMPI",
+      "path": "18"
+    },
+    "260": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x0"
+    },
+    "262": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "DUP1",
+      "path": "18"
+    },
+    "263": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "REVERT",
+      "path": "18"
+    },
+    "264": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "265": {
+      "op": "POP"
+    },
+    "266": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "PUSH1",
+      "path": "18",
+      "value": "0x20"
+    },
+    "268": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "ADD",
+      "path": "18"
+    },
+    "269": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "MLOAD",
+      "path": "18"
+    },
+    "270": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        776,
+        803
+      ],
+      "op": "SWAP6",
+      "path": "18"
+    },
+    "271": {
+      "op": "POP"
+    },
+    "272": {
+      "op": "POP"
+    },
+    "273": {
+      "op": "POP"
+    },
+    "274": {
+      "op": "POP"
+    },
+    "275": {
+      "op": "POP"
+    },
+    "276": {
+      "op": "POP"
+    },
+    "277": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "SWAP1",
+      "path": "18"
+    },
+    "278": {
+      "fn": "BorrowAndLend.getLatestPrice",
+      "jump": "o",
+      "offset": [
+        557,
+        832
+      ],
+      "op": "JUMP",
+      "path": "18"
+    },
+    "279": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMPDEST",
+      "path": "18"
+    },
+    "280": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "281": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "282": {
+      "fn": "BorrowAndLend.borrow",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "POP",
+      "path": "18"
+    },
+    "283": {
+      "fn": "BorrowAndLend.borrow",
+      "jump": "o",
+      "offset": [
+        463,
+        551
+      ],
+      "op": "JUMP",
+      "path": "18"
+    }
+  },
+  "sha1": "c14e3d99cb302c32faf551761f4259979f8ce59a",
+  "source": "\n// SPDX-License-Identifier: MIT\npragma solidity ^0.6.6;\n\nimport \"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\";\n\ncontract BorrowAndLend {\n\n    AggregatorV3Interface internal priceFeed;\n\n    // Kovan\n    // DAI/ETH\n    // 0x22B58f1EbEDfCA50feF632bD73368b2FdA96D541\n    // 0x773616E4d11A78F511299002da57A0a94577F1f4\n\n    constructor(address AggregatorAddress) public {\n        priceFeed = AggregatorV3Interface(AggregatorAddress);\n    }\n\n    function borrow(address asset, uint256 amount, uint256 interestRateMode) public {\n\n    }\n\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n",
+  "sourceMap": "136:698:18:-:0;;;342:115;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;342:115:18;398:9;:52;;-1:-1:-1;;;;;398:52:18;;;-1:-1:-1;;;;;;398:52:18;;;;;;;;;136:698;;;;;;",
+  "sourcePath": "contracts/BorrowAndLend.sol",
+  "type": "contract"
+}
