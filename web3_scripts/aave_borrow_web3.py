@@ -19,7 +19,7 @@ def main():
     approve_erc20(w3, kovan_weth_address, lending_pool.address,
                   amount, nonce=nonce_one)
     tx_hash = deposit_to_aave(w3, amount, lending_pool, nonce=nonce_two)
-    print(tx_hash)
+    print(tx_hash.hex())
 
 
 def get_lending_pool(w3):

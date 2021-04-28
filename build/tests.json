@@ -1,0 +1,31 @@
+{
+  "contracts": {
+    "APIConsumer": "e0dece31c63d2824af517cb6641c6dc799745328",
+    "BorrowAndLend": "8d06227af641e430d550163e6e140b97dae15e67",
+    "BorrowFromAave": "c606020e800254c7628994fb3616f7451ec9b197",
+    "LinkToken": "49e7bae2df618e81d877632c6ad55872ff2ce801",
+    "MockOracle": "7f09d8b642ed1af8d9a3e094ab619f25db4db23c",
+    "MockV3Aggregator": "9e734e161b5cafcca52a917f10266f5a8bc05b28",
+    "PriceFeed": "097c6bd07620966d0b130e245bf47a3c430dec7a",
+    "VRFConsumer": "551484bcf59884be2f128f7b6b4fbda0bdc1ac83",
+    "VRFCoordinatorMock": "a234e721cab3c47e532d8404949512e63f344855",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/BasicToken": "92084ac5279a2a3db988d9e01d7e6d3e3a4dab8d",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/BufferChainlink": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/CBORChainlink": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/Chainlink": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/ChainlinkClient": "750a107dfd09b0702b5ae03a4b6ea3c8b73190e1",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/SafeMathChainlink": "bf84f5dba942291289c80f271862cb515ce813ab",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/StandardToken": "7f21b0e2f1d1fcf89f4466183c9e73bc3cf77276",
+    "smartcontractkit/chainlink-brownie-contracts@1.0.2/VRFRequestIDBase": "73df0a6f5d0123eb2b2db0faf62b602aa77c123a"
+  },
+  "tests": {
+    "tests/test_aave_borrow.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "f4112963be9f69cb57a4aaa043249432f6e5807d",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}
