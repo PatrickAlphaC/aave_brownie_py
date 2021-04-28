@@ -1,3 +1,9 @@
+# TODO
+
+1. Borrow and lending contract
+2. Update readme
+3. Clean up tests
+
 # chainlink-mix
 
 <br/>
