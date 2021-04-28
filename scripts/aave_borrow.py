@@ -1,16 +1,19 @@
 from brownie import interface, config, network, accounts, Contract
 from web3 import Web3
+from scripts.get_weth import get_weth
 
 Web3.fromWei(1000000000000000000, 'ether')
 amount = Web3.toWei(0.1, 'ether')
 
 
 def main():
-    account = accounts.add(config["wallets"]["from_key"])
+    account = get_account()
     erc20_address = config['networks'][network.show_active()]['weth_token']
+    breakpoint()
+    if network.show_active() in ['mainnet-fork']:
+        get_weth(account=account)
     lending_pool = get_lending_pool()
     approve_erc20(amount, lending_pool.address, erc20_address, account)
-
     print("Depositing...")
     lending_pool.deposit(erc20_address, amount,
                          account.address, 0, {'from': account})
@@ -23,6 +26,16 @@ def main():
     print(f"We are going to borrow {amount_erc20_to_borrow} LINK")
     borrow_erc20(lending_pool, amount_erc20_to_borrow, account)
     get_borrowable_data(lending_pool, account)
+    repay_all(amount_erc20_to_borrow, lending_pool, account)
+
+
+def get_account():
+    if network.show_active() in ['hardhat', 'development', 'mainnet-fork']:
+        return accounts[0]
+    if network.show_active() in config["networks"]:
+        dev_account = accounts.add(config["wallets"]["from_key"])
+        return dev_account
+    return None
 
 
 def get_lending_pool():
@@ -74,6 +87,15 @@ def get_asset_price():
         link_eth_price_feed.latestRoundData()[1], 'ether')
     print(f"The LINK/ETH price is {latest_price}")
     return float(latest_price)
+
+
+def repay_all(amount, lending_pool, account):
+    approve_erc20(Web3.toWei(amount, 'ether'), lending_pool, config['networks'][network.show_active(
+    )]['aave_link_token'], account)
+    tx = lending_pool.repay(
+        config['networks'][network.show_active()]['aave_link_token'], Web3.toWei(amount, 'ether'), 1, account.address, {'from': account})
+    tx.wait(1)
+    print("Repaid!")
 
 
 if __name__ == '__main__':
