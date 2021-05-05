@@ -1,8 +1,8 @@
 <br/>
 <p align="center">
 <a href="https://chain.link" target="_blank">
-<img src="https://raw.githubusercontent.com/PatrickAlphaC/aave_web3_py/main/img/aave.png" width="225" alt="Python + Aave">
-<img src="https://raw.githubusercontent.com/PatrickAlphaC/nft-aave_web3_py/main/img/python.png" width="225" alt="Python + Aave">
+<img src="https://raw.githubusercontent.com/PatrickAlphaC/aave_brownie_py/main/img/aave.png" width="225" alt="Python + Aave">
+<img src="https://raw.githubusercontent.com/PatrickAlphaC/aave_brownie_py/main/img/python.png" width="225" alt="Python + Aave">
 </a>
 </p>
 <br/>
