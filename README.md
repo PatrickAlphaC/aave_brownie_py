@@ -1,191 +1,82 @@
-# TODO
-
-1. Borrow and lending contract
-2. Update readme
-3. Clean up tests
-
-# chainlink-mix
-
 <br/>
 <p align="center">
 <a href="https://chain.link" target="_blank">
-<img src="https://raw.githubusercontent.com/smartcontractkit/chainlink-mix/master/img/chainlink-brownie.png" width="225" alt="Chainlink Brownie logo">
+<img src="https://raw.githubusercontent.com/PatrickAlphaC/aave_web3_py/main/img/aave.png" width="225" alt="Python + Aave">
+<img src="https://raw.githubusercontent.com/PatrickAlphaC/nft-aave_web3_py/main/img/python.png" width="225" alt="Python + Aave">
 </a>
 </p>
 <br/>
 
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/smartcontractkit/chainlink-mix.svg)](http://isitmaintained.com/project/smartcontractkit/chainlink-mix "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/smartcontractkit/chainlink-mix.svg)](http://isitmaintained.com/project/smartcontractkit/chainlink-mix "Percentage of issues still open")
+# aave_web3_py
 
-This is a repo to work with and use Chainlink smart contracts in a python environment. If you're brand new to Chainlink, check out the beginner walkthroughs in remix to [learn the basics.](https://docs.chain.link/docs/beginners-tutorial)
+Put down collateral, Borrow, and repay a loan from Aave! Use this to short assets and accrue interest. 
 
-You can also check out the more advanced Chainlink tutorials there as well. 
+In our `aave_borrow_web3.py` script, we do the following:
 
-## Prerequisites
+1. Approve our `ETH` to be swapped for `WETH`
+2. Swap an `amount` of `ETH` for `WETH`
+3. Using `deposit_to_aave` we deposit the `WETH` as collateral
+4. We use that collateral to borrow `LINK` with `borrow_erc20`
+5. Then, we pay it back! 
+6. We can view the txs on etherscan to see what's going on under the hood. 
 
-Please install or have installed the following:
 
-- [nodejs and npm](https://nodejs.org/en/download/)
-- [python](https://www.python.org/downloads/)
-## Installation
+# Setup
 
-1. [Install Brownie](https://eth-brownie.readthedocs.io/en/stable/install.html), if you haven't already. Here is a simple way to install brownie.
+You'll need python installed. 
 
-```bash
-pip install eth-brownie
 ```
-
-2. [Install ganache-cli](https://www.npmjs.com/package/ganache-cli)
-
-```bash
-npm install -g ganache-cli
-```
-
-3. Download the mix and install dependancies. 
-
-```bash
-brownie bake chainlink-mix
-cd chainlink-mix
 pip install -r requirements.txt
 ```
 
-This will open up a new Chainlink project. Or, you can clone from source:
-
-```bash
-git clone https://github.com/PatrickAlphaC/chainlink-mix
-cd chainlink-mix 
-```
-
-If you want to be able to deploy to testnets, do the following. 
-
-1. Set your `WEB3_INFURA_PROJECT_ID`, and `PRIVATE_KEY` [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html). 
-
-You can get a `WEB3_INFURA_PROJECT_ID` by getting a free trial of [Infura](https://infura.io/). At the moment, it does need to be infura with brownie. You can find your `PRIVATE_KEY` from your ethereum wallet like [metamask](https://metamask.io/). 
-
-You'll also need testnet rinkeby ETH and LINK. You can get LINK and ETH into your wallet by using the [rinkeby faucets located here](https://docs.chain.link/docs/link-token-contracts#rinkeby). If you're new to this, [watch this video.](https://www.youtube.com/watch?v=P7FX_1PePX0)
-
-You can add your environment variables to the `.env` file:
+You'll need the following [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html). You can set them all in your `.env` file:
 
 ```
-export WEB3_INFURA_PROJECT_ID=<PROJECT_ID>
-export PRIVATE_KEY=<PRIVATE_KEY>
+export WEB3_INFURA_PROJECT_ID=YourProjectID
+export PRIVATE_KEY="0xasdfasdfasdfasd..."
 ```
 
-AND THEN RUN `source .env` TO ACTIVATE THE ENV VARIABLES
-(You'll need to do this everytime you open a new terminal, or [learn how to set them easier](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html))
+- `PRIVATE_KEY`: Your Private Key from your Wallet. *Note: If using metamask, you'll have to add a 0x to the start of your private key.
+- `WEB3_INFURA_PROJECT_ID`: Your connection to the blockchain. You can get a URL from a service like [Infura](https://infura.io/)]. Right now it is hard coded to work with infura, but you can modify it however you want using `brownie networks modify`. 
 
+## Run `source .env`
 
-Otherwise, you can build, test, and deploy on your local environment. 
+This doesn't auto-pull in your `.env` file at the start, so you have to set your environment variables at the start. 
 
-## Chainlink Price Feeds
+And last, be sure to check the aave_link_token if you're using a [testnet LINK token](https://docs.aave.com/developers/deployed-contracts/deployed-contracts0).  Aave sometimes changes the token they use on testnet to keep liquidity. 
+Also, feel free to check the [Aave docs](https://docs.aave.com/developers/the-core-protocol/lendingpool) as well, to learn more about the tools we are using. 
 
-This mix provides a simple template for working with Chainlink Smart Contracts. The easiest way to start is to fork the mainnet chain to a local ganache chain. This will allow you to deploy local smart contracts to interact with the [Chainlink Price Feeds](https://docs.chain.link/docs/get-the-latest-price). 
+# Quickstart - kovan
 
-### Running Scripts
+1. [Get some kovan ETH](https://faucet.kovan.network/)
 
-This will deploy a smart contract to kovan and then read you the latest price via [Chainlink Price Feeds](https://docs.chain.link/docs/get-the-latest-price). 
-```
-brownie run scripts/price_feed_scripts/deploy_price_consumer_v3.py --network kovan
-brownie run scripts/price_feed_scripts/read_price_feed.py --network kovan
-```
-
-Otherwise, you can fork mainnet and use that in a local ganache development environment.
-```bash
-brownie console --network mainnet-fork
->>> price_feeds = PriceFeed.deploy('0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419', {'from': accounts[0]})
-.
-.
->>> latest_price = price_feeds.getLatestPrice()
->>> latest_price
-59169208540
-```
-
-You can also use [ENS](https://docs.chain.link/docs/ens) to get prices. See the [ens price feed script](./scripts/price_feed_scripts/read_price_with_ens.py) for more information. 
-
-## Chainlink VRF
-
-This will deploy a smart contract to kovan and get a Random number via [Chainlink VRF](https://docs.chain.link/docs/get-a-random-number). 
-```
-brownie run scripts/vrf_scripts/deploy_vrf.py --network kovan
-brownie run scripts/vrf_scripts/fund_vrf.py --network kovan
-brownie run scripts/vrf_scripts/request_randomness.py --network kovan
-brownie run scripts/vrf_scripts/read_random_number.py --network kovan
-```
-
-## Chainlink API Call
-
-
-This will deploy a smart contract to kovan and then make an API call via [Chainlink API Call](https://docs.chain.link/docs/make-a-http-get-request). 
-```
-brownie run scripts/chainlink_api_scripts/deploy_api_consumer.py --network kovan
-brownie run scripts/chainlink_api_scripts/fund_chainlink_api.py --network kovan
-brownie run scripts/chainlink_api_scripts/request_api.py --network kovan
-brownie run scripts/chainlink_api_scripts/read_data.py --network kovan
-```
-
-## Testing
+2. Get some WETH
 
 ```
-brownie test
+brownie run scripts/get_weth.py --network kovan
 ```
 
-For more information on effective testing with Chainlink, check out [Testing Smart Contracts](https://blog.chain.link/testing-chainlink-smart-contracts/)
-
-Tests are really robust here! They work for local development and testnets. There are a few key differences between the testnets and the local networks. We utilize mocks so we can work with fake oracles on our testnets. 
-
-There is a `test_unnecessary` folder, which is a good exersize for learning some of the nitty-gritty of smart contract development. It's overkill, so pytest will skip them intentionally. It also has a `test_samples` folder, which shows an example Chainlink API call transaction receipt. 
-
-
-### To test development / local
-```bash
-brownie test
-```
-### To test mainnet-fork
-This will test the same way as local testing, but you will need a connection to a mainnet blockchain (like with the infura environment variable.)
-```bash
-brownie test --network mainnet-fork
-```
-### To test a testnet
-Kovan and Rinkeby are currently supported
-```bash
-brownie test --network kovan
-```
-
-## Adding additional Chains
-
-If the blockchain is EVM Compatible, adding new chains can be accomplished by something like:
+3. Run the script!
 
 ```
-brownie networks add Ethereum binance-smart-chain host=https://bsc-dataseed1.binance.org chainid=56
-```
-or, for a fork: 
-
-```
-brownie networks add development binance-fork cmd=ganache-cli host=http://127.0.0.1 fork=https://bsc-dataseed1.binance.org accounts=10 mnemonic=brownie port=8545
+brownie run scripts/aave_borrow.py --network kovan
 ```
 
-## Linting
+
+# Quickstart - mainnet-fork
+
+
+Optional for running locally:
+If you want to run locally, you can install `ganache-cli` and `yarn`. Here is where you can [install yarn.](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 
 ```
-pip install black 
-pip install autoflake
-autoflake --in-place --remove-unused-variables -r .
-black .
+yarn global add ganache-cli
 ```
 
-## Resources
+Then, you can run `ganache-cli --fork YOUR_INFURA_URL_HERE`, or just `brownie run <YOUR_SCRIPT> --network mainnet-fork`
 
-To get started with Brownie:
+1. Get some WETH, borrow, and repay!
 
-* [Chainlink Documentation](https://docs.chain.link/docs)
-* Check out the [Chainlink documentation](https://docs.chain.link/docs) to get started from any level of smart contract engineering. 
-* Check out the other [Brownie mixes](https://github.com/brownie-mix/) that can be used as a starting point for your own contracts. They also provide example code to help you get started.
-* ["Getting Started with Brownie"](https://medium.com/@iamdefinitelyahuman/getting-started-with-brownie-part-1-9b2181f4cb99) is a good tutorial to help you familiarize yourself with Brownie.
-* For more in-depth information, read the [Brownie documentation](https://eth-brownie.readthedocs.io/en/stable/).
-
-
-Any questions? Join our [Discord](https://discord.gg/2YHSAey)
-
-## License
-
-This project is licensed under the [MIT license](LICENSE).
+```
+brownie run scripts/aave_borrow.py
+```
