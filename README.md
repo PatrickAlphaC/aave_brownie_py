@@ -7,11 +7,13 @@
 </p>
 <br/>
 
-# aave_web3_py
+# aave_brownie_py
 
 Put down collateral, Borrow, and repay a loan from Aave! Use this to short assets and accrue interest. 
 
-In our `aave_borrow_web3.py` script, we do the following:
+[You can see a web3 version of this here. ](https://github.com/PatrickAlphaC/aave_web3_py)
+
+In our `aave_borrow.py` script, we do the following:
 
 1. Approve our `ETH` to be swapped for `WETH`
 2. Swap an `amount` of `ETH` for `WETH`
