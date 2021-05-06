@@ -4,8 +4,8 @@
     "tests/test_aave_borrow.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".",
-      "sha1": "585e36826ca1bc3252489fb596a0d03445e60e36",
+      "results": "...",
+      "sha1": "ca92344f49c09f06902703e783ea7661f380528e",
       "txhash": []
     }
   },

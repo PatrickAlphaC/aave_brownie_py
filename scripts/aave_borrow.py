@@ -54,6 +54,7 @@ def approve_erc20(amount, lending_pool_address, erc20_address, account):
     tx_hash = erc20.approve(lending_pool_address, amount, {"from": account})
     tx_hash.wait(1)
     print("Approved!")
+    return True
 
 
 def get_borrowable_data(lending_pool, account):
