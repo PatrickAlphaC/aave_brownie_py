@@ -30,6 +30,13 @@ You'll need python installed.
 ```
 pip install -r requirements.txt
 ```
+Or, if that doesn't work, via pipx:
+```bash
+pip install --user pipx
+pipx ensurepath
+# restart your terminal
+pipx install eth-brownie
+```
 
 You'll need the following [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html). You can set them all in your `.env` file:
 
