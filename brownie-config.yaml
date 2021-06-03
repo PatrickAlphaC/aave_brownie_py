@@ -27,13 +27,17 @@ networks:
     # For mainnet, the link token is the same
     link_token: '0x514910771af9ca656af840dff83e8264ecf986ca'
     aave_link_token: '0x514910771af9ca656af840dff83e8264ecf986ca'
+    aave_dai_token: '0x6b175474e89094c44da98b954eedeac495271d0f'
+    dai_token: '0x6b175474e89094c44da98b954eedeac495271d0f'
     link_eth_price_feed: '0xDC530D9457755926550b59e8ECcdaE7624181557'
+    dai_eth_price_feed: '0x773616E4d11A78F511299002da57A0a94577F1f4'
   kovan:
     vrf_coordinator: '0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9'
     # https://aave.github.io/aave-addresses/kovan.json
     # Aave uses their own testnet tokens to ensure they are good
     # find the most up to date in the above
     aave_link_token: '0xAD5ce863aE3E4E9394Ab43d4ba0D80f419F61789'
+    aave_dai_token: '0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD'
     link_token: '0xa36085F69e2889c224210F603D836748e7dC0088'
     keyhash: '0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4'
     fee: 100000000000000000
@@ -41,6 +45,7 @@ networks:
     jobId: '29fa9aa13bf1468788b7cc4a500a45b8'
     eth_usd_price_feed: '0x9326BFA02ADD2366b30bacB125260Af641031331'
     link_eth_price_feed: '0x3Af8C569ab77af5230596Acf0E8c2F9351d24C38'
+    dai_eth_price_feed: '0x22B58f1EbEDfCA50feF632bD73368b2FdA96D541'
     # You can get the address of the lending pool from the lending pool address provider
     # Sometimes the lending_pool address changes, so we want to get the address from there
     lending_poll_addresses_provider: '0x88757f2f99175387ab4c6a4b3067c77a695b0349'

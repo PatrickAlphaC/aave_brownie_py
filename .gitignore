@@ -1,4 +1,5 @@
+build/
+build/*
 .pytest_cache
 .env
 build
-build/

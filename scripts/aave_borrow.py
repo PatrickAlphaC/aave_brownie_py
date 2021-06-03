@@ -2,7 +2,6 @@ from brownie import interface, config, network, accounts, Contract
 from web3 import Web3
 from scripts.get_weth import get_weth
 
-Web3.fromWei(1000000000000000000, "ether")
 amount = Web3.toWei(0.1, "ether")
 
 
@@ -14,34 +13,32 @@ def main():
     lending_pool = get_lending_pool()
     approve_erc20(amount, lending_pool.address, erc20_address, account)
     print("Depositing...")
-    lending_pool.deposit(erc20_address, amount,
-                         account.address, 0, {"from": account})
+    lending_pool.deposit(erc20_address, amount, account.address, 0, {"from": account})
     print("Deposited!")
 
     borrowable_eth, total_debt_eth = get_borrowable_data(lending_pool, account)
     print(f"LETS BORROW IT ALL")
     erc20_eth_price = get_asset_price()
     amount_erc20_to_borrow = (1 / erc20_eth_price) * (borrowable_eth * 0.95)
-    print(f"We are going to borrow {amount_erc20_to_borrow} LINK")
+    print(f"We are going to borrow {amount_erc20_to_borrow} DAI")
     borrow_erc20(lending_pool, amount_erc20_to_borrow, account)
     borrowable_eth, total_debt_eth = get_borrowable_data(lending_pool, account)
-    amount_erc20_to_repay = (1 / erc20_eth_price) * (total_debt_eth * 0.95)
-    repay_all(amount_erc20_to_repay, lending_pool, account)
+    # amount_erc20_to_repay = (1 / erc20_eth_price) * (total_debt_eth * 0.95)
+    repay_all(amount_erc20_to_borrow, lending_pool, account)
 
 
 def get_account():
     if network.show_active() in ["hardhat", "development", "mainnet-fork"]:
         return accounts[0]
     if network.show_active() in config["networks"]:
-        dev_account = accounts.add(config["wallets"]["from_key"])
-        return dev_account
+        account = accounts.add(config["wallets"]["from_key"])
+        return account
     return None
 
 
 def get_lending_pool():
     lending_pool_addresses_provider = interface.ILendingPoolAddressesProvider(
-        config["networks"][network.show_active(
-        )]["lending_poll_addresses_provider"]
+        config["networks"][network.show_active()]["lending_poll_addresses_provider"]
     )
     lending_pool_address = lending_pool_addresses_provider.getLendingPool()
     lending_pool = interface.ILendingPool(lending_pool_address)
@@ -79,7 +76,7 @@ def borrow_erc20(lending_pool, amount, account, erc20_address=None):
     erc20_address = (
         erc20_address
         if erc20_address
-        else config["networks"][network.show_active()]["aave_link_token"]
+        else config["networks"][network.show_active()]["aave_dai_token"]
     )
     # 1 is stable interest rate
     # 0 is the referral code
@@ -98,12 +95,11 @@ def borrow_erc20(lending_pool, amount, account, erc20_address=None):
 def get_asset_price():
     # For mainnet we can just do:
     # return Contract(f"{pair}.data.eth").latestAnswer() / 1e8
-    link_eth_price_feed = interface.AggregatorV3Interface(
-        config["networks"][network.show_active()]["link_eth_price_feed"]
+    dai_eth_price_feed = interface.AggregatorV3Interface(
+        config["networks"][network.show_active()]["dai_eth_price_feed"]
     )
-    latest_price = Web3.fromWei(
-        link_eth_price_feed.latestRoundData()[1], "ether")
-    print(f"The LINK/ETH price is {latest_price}")
+    latest_price = Web3.fromWei(dai_eth_price_feed.latestRoundData()[1], "ether")
+    print(f"The DAI/ETH price is {latest_price}")
     return float(latest_price)
 
 
@@ -111,11 +107,11 @@ def repay_all(amount, lending_pool, account):
     approve_erc20(
         Web3.toWei(amount, "ether"),
         lending_pool,
-        config["networks"][network.show_active()]["aave_link_token"],
+        config["networks"][network.show_active()]["aave_dai_token"],
         account,
     )
     tx = lending_pool.repay(
-        config["networks"][network.show_active()]["aave_link_token"],
+        config["networks"][network.show_active()]["aave_dai_token"],
         Web3.toWei(amount, "ether"),
         1,
         account.address,

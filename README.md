@@ -30,7 +30,7 @@ You'll need python installed.
 ```
 pip install -r requirements.txt
 ```
-Or, if that doesn't work, via pipx:
+Or, if you run into issues use pipx:
 ```bash
 pip install --user pipx
 pipx ensurepath
@@ -52,7 +52,7 @@ export PRIVATE_KEY="0xasdfasdfasdfasd..."
 
 This doesn't auto-pull in your `.env` file at the start, so you have to set your environment variables at the start. 
 
-And last, be sure to check the aave_link_token if you're using a [testnet LINK token](https://docs.aave.com/developers/deployed-contracts/deployed-contracts0).  Aave sometimes changes the token they use on testnet to keep liquidity. 
+And last, be sure to check the aave_dai_token if you're using a [testnet DAI token](https://docs.aave.com/developers/deployed-contracts/deployed-contracts0).  Aave sometimes changes the token they use on testnet to keep liquidity, [please check here for reference](https://aave.github.io/aave-addresses/kovan.json). 
 Also, feel free to check the [Aave docs](https://docs.aave.com/developers/the-core-protocol/lendingpool) as well, to learn more about the tools we are using. 
 
 # Quickstart - kovan
