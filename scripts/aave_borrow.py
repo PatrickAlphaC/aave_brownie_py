@@ -1,4 +1,4 @@
-from brownie import interface, config, network, accounts, Contract
+from brownie import accounts, config, interface, network
 from web3 import Web3
 from scripts.get_weth import get_weth
 
@@ -15,13 +15,13 @@ def main():
     print("Depositing...")
     lending_pool.deposit(erc20_address, amount, account.address, 0, {"from": account})
     print("Deposited!")
-
     borrowable_eth, total_debt_eth = get_borrowable_data(lending_pool, account)
     print(f"LETS BORROW IT ALL")
     erc20_eth_price = get_asset_price()
     amount_erc20_to_borrow = (1 / erc20_eth_price) * (borrowable_eth * 0.95)
     print(f"We are going to borrow {amount_erc20_to_borrow} DAI")
     borrow_erc20(lending_pool, amount_erc20_to_borrow, account)
+
     borrowable_eth, total_debt_eth = get_borrowable_data(lending_pool, account)
     # amount_erc20_to_repay = (1 / erc20_eth_price) * (total_debt_eth * 0.95)
     repay_all(amount_erc20_to_borrow, lending_pool, account)
