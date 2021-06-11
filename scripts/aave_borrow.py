@@ -38,7 +38,7 @@ def get_account():
 
 def get_lending_pool():
     lending_pool_addresses_provider = interface.ILendingPoolAddressesProvider(
-        config["networks"][network.show_active()]["lending_poll_addresses_provider"]
+        config["networks"][network.show_active()]["lending_pool_addresses_provider"]
     )
     lending_pool_address = lending_pool_addresses_provider.getLendingPool()
     lending_pool = interface.ILendingPool(lending_pool_address)
