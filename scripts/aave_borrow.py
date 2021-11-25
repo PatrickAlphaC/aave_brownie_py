@@ -98,7 +98,8 @@ def get_asset_price():
     dai_eth_price_feed = interface.AggregatorV3Interface(
         config["networks"][network.show_active()]["dai_eth_price_feed"]
     )
-    latest_price = Web3.fromWei(dai_eth_price_feed.latestRoundData()[1], "ether")
+    decimals = dai_eth_price_feed.decimals()
+    latest_price = dai_eth_price_feed.latestRoundData()[1] / 10 ** decimals
     print(f"The DAI/ETH price is {latest_price}")
     return float(latest_price)
 
