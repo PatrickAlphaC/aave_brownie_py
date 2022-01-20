@@ -1,2 +1,1 @@
 eth-brownie
-python-dotenv
