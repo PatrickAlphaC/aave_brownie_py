@@ -18,6 +18,6 @@ def get_weth(account=None):
     weth = interface.WethInterface(
         config["networks"][network.show_active()]["weth_token"]
     )
-    tx = weth.deposit({"from": account, "value": 1000000000000000000})
-    print("Received 1 WETH")
+    tx = weth.deposit({"from": account, "value": 0.1 * 1e18})
+    print("Received 0.1 WETH")
     return tx
