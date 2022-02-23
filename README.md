@@ -7,9 +7,15 @@
 </p>
 <br/>
 
+# Requirements
+
+-   [brownie](https://eth-brownie.readthedocs.io/en/stable/install.html)
+-   [nodejs](https://nodejs.org/en/)
+-   [ganache-cli](https://www.npmjs.com/package/ganache-cli)
+
 # aave_brownie_py
 
-Put down collateral, Borrow, and repay a loan from Aave! Use this to short assets and accrue interest. 
+Put down collateral, Borrow, and repay a loan from Aave! Use this to short assets and accrue interest.
 
 [You can see a web3 version of this here. ](https://github.com/PatrickAlphaC/aave_web3_py)
 
@@ -19,18 +25,19 @@ In our `aave_borrow.py` script, we do the following:
 2. Swap an `amount` of `ETH` for `WETH`
 3. Using `deposit_to_aave` we deposit the `WETH` as collateral
 4. We use that collateral to borrow `DAI` with `borrow_erc20`
-5. Then, we pay it back! 
-6. We can view the txs on etherscan to see what's going on under the hood. 
-
+5. Then, we pay it back!
+6. We can view the txs on etherscan to see what's going on under the hood.
 
 # Setup
 
-You'll need python installed. 
+You'll need python installed.
 
 ```
 pip install -r requirements.txt
 ```
+
 Or, if you run into issues use pipx:
+
 ```bash
 pip install --user pipx
 pipx ensurepath
@@ -45,15 +52,15 @@ export WEB3_INFURA_PROJECT_ID=YourProjectID
 export PRIVATE_KEY="0xasdfasdfasdfasd..."
 ```
 
-- `PRIVATE_KEY`: Your Private Key from your Wallet. *Note: If using metamask, you'll have to add a 0x to the start of your private key.
-- `WEB3_INFURA_PROJECT_ID`: Your connection to the blockchain. You can get a URL from a service like [Infura](https://infura.io/)]. Right now it is hard coded to work with infura, but you can modify it however you want using `brownie networks modify`. 
+-   `PRIVATE_KEY`: Your Private Key from your Wallet. \*Note: If using metamask, you'll have to add a 0x to the start of your private key.
+-   `WEB3_INFURA_PROJECT_ID`: Your connection to the blockchain. You can get a URL from a service like [Infura](https://infura.io/)]. Right now it is hard coded to work with infura, but you can modify it however you want using `brownie networks modify`.
 
 ## Run `source .env`
 
-This doesn't auto-pull in your `.env` file at the start, so you have to set your environment variables at the start. 
+This doesn't auto-pull in your `.env` file at the start, so you have to set your environment variables at the start.
 
-And last, be sure to check the aave_dai_token if you're using a [testnet DAI token](https://docs.aave.com/developers/deployed-contracts/deployed-contracts0).  Aave sometimes changes the token they use on testnet to keep liquidity, [please check here for reference](https://aave.github.io/aave-addresses/kovan.json). 
-Also, feel free to check the [Aave docs](https://docs.aave.com/developers/the-core-protocol/lendingpool) as well, to learn more about the tools we are using. 
+And last, be sure to check the aave_dai_token if you're using a [testnet DAI token](https://docs.aave.com/developers/deployed-contracts/deployed-contracts0). Aave sometimes changes the token they use on testnet to keep liquidity, [please check here for reference](https://aave.github.io/aave-addresses/kovan.json).
+Also, feel free to check the [Aave docs](https://docs.aave.com/developers/the-core-protocol/lendingpool) as well, to learn more about the tools we are using.
 
 # Quickstart - kovan
 
@@ -71,9 +78,7 @@ brownie run scripts/get_weth.py --network kovan
 brownie run scripts/aave_borrow.py --network kovan
 ```
 
-
 # Quickstart - mainnet-fork
-
 
 Optional for running locally:
 If you want to run locally, you can install `ganache-cli` and `yarn`. Here is where you can [install yarn.](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
