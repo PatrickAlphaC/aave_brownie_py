@@ -25,6 +25,8 @@ def main():
     borrowable_eth, total_debt_eth = get_borrowable_data(lending_pool, account)
     # amount_erc20_to_repay = (1 / erc20_eth_price) * (total_debt_eth * 0.95)
     repay_all(amount_erc20_to_borrow, lending_pool, account)
+    # Then print out our borrowable data
+    get_borrowable_data(lending_pool, account)
 
 
 def get_account():
