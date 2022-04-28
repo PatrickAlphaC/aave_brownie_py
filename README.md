@@ -30,13 +30,13 @@ In our `aave_borrow.py` script, we do the following:
 
 # Setup
 
-You'll need python installed.
+You'll need python installed. If working with a virtual environment, you can run:
 
 ```
 pip install -r requirements.txt
 ```
 
-Or, if you run into issues use pipx:
+Or, ideally you use pipx:
 
 ```bash
 pip install --user pipx
